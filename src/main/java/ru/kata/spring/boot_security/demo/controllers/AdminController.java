@@ -10,7 +10,6 @@ import ru.kata.spring.boot_security.demo.models.User;
 import ru.kata.spring.boot_security.demo.services.RoleService;
 import ru.kata.spring.boot_security.demo.services.RoleServiceImpl;
 import ru.kata.spring.boot_security.demo.services.UserService;
-import ru.kata.spring.boot_security.demo.services.UserServiceImpl;
 
 import javax.validation.Valid;
 
@@ -22,9 +21,9 @@ public class AdminController {
     private final RoleService roleService;
 
     @Autowired
-    public AdminController(UserServiceImpl userServiceImpl, @Lazy RoleServiceImpl roleServiceImpl) {
-        this.userService = userServiceImpl;
-        this.roleService = roleServiceImpl;
+    public AdminController(UserService userService, @Lazy RoleServiceImpl roleService) {
+        this.userService = userService;
+        this.roleService = roleService;
     }
 
     @GetMapping()
